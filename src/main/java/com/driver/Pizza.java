@@ -7,7 +7,7 @@ public class Pizza {
     private int basePrice = 0;
     private Boolean isVeg;
     private String bill = "";
-
+    private Boolean deluxe = false;
     private Boolean extraCheese = false;
     private Boolean extraToppings = false;
     private Boolean takeAway = false;
@@ -24,16 +24,9 @@ public class Pizza {
             basePrice = price;
         }
     }
-//    public void ifDeluxe(Boolean deluxe) {
-//        if(isVeg == true) {
-//            price += 80 + 70;
-//            basePrice = price;
-//        }
-//        else {
-//            price += 80 + 120;
-//            basePrice = price;
-//        }
-//    }
+    public void ifDeluxe(Boolean del) {
+        deluxe = del;
+    }
     public int getPrice(){
         return this.price;
     }
@@ -69,10 +62,11 @@ public class Pizza {
             else
             bill += "Base Price Of The Pizza: " + basePrice + "\n";
 
-        if(extraCheese == true)
+
+        if(deluxe == false && extraCheese == true)
             bill += "Extra Cheese Added: 80 \n";
 
-        if(extraToppings == true) {
+        if(deluxe == false && extraToppings == true) {
             if(isVeg == true)
                 bill += "Extra Toppings Added: 70 \n";
             else
