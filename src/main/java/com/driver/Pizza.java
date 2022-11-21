@@ -17,23 +17,23 @@ public class Pizza {
         this.isVeg = isVeg;
         if(isVeg == true) {
             price += 300;
-            basePrice += 300;
+            basePrice = price;
         }
         else {
             price += 400;
-            basePrice += 400;
+            basePrice = price;
         }
     }
-    public void ifDeluxe(Boolean deluxe) {
-        if(isVeg == true) {
-            price += 80 + 70;
-            basePrice += 80 + 70;
-        }
-        else {
-            price += 80 + 120;
-            basePrice += 80 + 120;
-        }
-    }
+//    public void ifDeluxe(Boolean deluxe) {
+//        if(isVeg == true) {
+//            price += 80 + 70;
+//            basePrice = price;
+//        }
+//        else {
+//            price += 80 + 120;
+//            basePrice = price;
+//        }
+//    }
     public int getPrice(){
         return this.price;
     }
