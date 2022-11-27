@@ -88,10 +88,10 @@ public class Pizza {
                 bill += "Paperbag Added: 20 \n";
             }
             bill += "Total Price: " + String.valueOf(price) + "\n";
-
+            billGenerated = true;
 
         }
-        billGenerated = true;
+
         return this.bill;
     }
 }
