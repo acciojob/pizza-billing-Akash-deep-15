@@ -9,6 +9,8 @@ public class Pizza {
     private String bill = "";
     private Boolean deluxe = false;
     private Boolean extraCheese = false;
+    private int cheese = 80;
+    private int toppings = 0;
     private Boolean extraToppings = false;
     private Boolean takeAway = false;
     private Boolean billGenerated = false;
@@ -19,10 +21,12 @@ public class Pizza {
         if(isVeg == true) {
             price += 300;
             basePrice = price;
+            toppings = 70;
         }
         else {
             price += 400;
             basePrice = price;
+            toppings = 120;
         }
     }
     public void ifDeluxe(Boolean del) {
@@ -43,17 +47,14 @@ public class Pizza {
 
     public void addExtraCheese(){
         if(extraCheese == false) {
-                price += 80;
+                price += cheese;
         }
         extraCheese = true;
     }
 
     public void addExtraToppings(){
         if(extraToppings == false) {
-            if(isVeg == true)
-                price += 70;
-            else
-                price += 120;
+            price += toppings;
         }
         extraToppings = true;
     }
@@ -75,17 +76,17 @@ public class Pizza {
 
 
             if (extraCheese == true)
-                bill += "Extra Cheese Added: 80 \n";
+                bill += "Extra Cheese Added: 80\n";
 
             if (extraToppings == true) {
                 if (isVeg == true)
-                    bill += "Extra Toppings Added: 70 \n";
+                    bill += "Extra Toppings Added: 70\n";
                 else
-                    bill += "Extra Toppings Added: 120 \n";
+                    bill += "Extra Toppings Added: 120\n";
             }
 
             if (takeAway == true) {
-                bill += "Paperbag Added: 20 \n";
+                bill += "Paperbag Added: 20\n";
             }
             bill += "Total Price: " + String.valueOf(price) + "\n";
             billGenerated = true;
