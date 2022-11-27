@@ -74,10 +74,10 @@ public class Pizza {
                 bill += "Base Price Of The Pizza: " + basePrice + "\n";
 
 
-            if (deluxe == true || extraCheese == true)
+            if (extraCheese == true)
                 bill += "Extra Cheese Added: 80 \n";
 
-            if (deluxe == true || extraToppings == true) {
+            if (extraToppings == true) {
                 if (isVeg == true)
                     bill += "Extra Toppings Added: 70 \n";
                 else
