@@ -24,9 +24,9 @@ public class Pizza {
             basePrice = price;
         }
     }
-    public void ifDeluxe(Boolean del) {
-        deluxe = del;
-    }
+//    public void ifDeluxe(Boolean del) {
+//        deluxe = del;
+//    }
     public int getPrice(){
         return this.price;
     }
