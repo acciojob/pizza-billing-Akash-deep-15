@@ -11,6 +11,7 @@ public class Pizza {
     private Boolean extraCheese = false;
     private Boolean extraToppings = false;
     private Boolean takeAway = false;
+    private Boolean billGenerated = false;
 
 
     public Pizza(Boolean isVeg){
@@ -27,10 +28,10 @@ public class Pizza {
     public void ifDeluxe(Boolean del) {
         deluxe = del;
         if(isVeg) {
-            basePrice += 80 + 70;
+            price += 80 + 70;
         }
         else
-            basePrice += 80 + 120;
+            price += 80 + 120;
 
         extraCheese = true;
         extraToppings= true;
@@ -65,26 +66,32 @@ public class Pizza {
     }
 
     public String getBill(){
-        if(isVeg == true)
-            bill += "Base Price Of The Pizza: " + basePrice + "\n";
+
+        if(billGenerated == false) {
+            if (isVeg == true)
+                bill += "Base Price Of The Pizza: " + basePrice + "\n";
             else
-            bill += "Base Price Of The Pizza: " + basePrice + "\n";
+                bill += "Base Price Of The Pizza: " + basePrice + "\n";
 
 
-        if(deluxe == true || extraCheese == true)
-            bill += "Extra Cheese Added: 80 \n";
+            if (deluxe == true || extraCheese == true)
+                bill += "Extra Cheese Added: 80 \n";
 
-        if(deluxe == true || extraToppings == true) {
-            if(isVeg == true)
-                bill += "Extra Toppings Added: 70 \n";
-            else
-                bill += "Extra Toppings Added: 120 \n";
+            if (deluxe == true || extraToppings == true) {
+                if (isVeg == true)
+                    bill += "Extra Toppings Added: 70 \n";
+                else
+                    bill += "Extra Toppings Added: 120 \n";
+            }
+
+            if (takeAway == true) {
+                bill += "Paperbag Added: 20 \n";
+            }
+            bill += "Total Price: " + String.valueOf(price) + "\n";
+
+
         }
-
-        if(takeAway == true) {
-            bill += "Paperbag Added: 20 \n";
-        }
-        bill += "Total Price: "+String.valueOf(price)+"\n";
+        billGenerated = true;
         return this.bill;
     }
 }
